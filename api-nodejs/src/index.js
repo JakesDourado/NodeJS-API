@@ -10,11 +10,7 @@ app.get("/lista-produto", (request, response) => {
   const { produto, qnt, valor } = request.query;
   product = { produto, qnt, valor };
 
-
-
-  console.log(products);
-
-  return response.json(products);
+ return response.json(products);
  
 });
 
@@ -23,8 +19,6 @@ app.post("/add-produto", (request, response) => {
   product = { id: uuid(), produto, qnt, valor };
 
   products.push(product);
-
-  console.log(product);
   return response.json(product);
 });
 
@@ -43,8 +37,6 @@ app.put("/edit-produto/:id", (request, response) => {
     valor,
   };
   products[productIndex] = product;
-
-  console.log(product);
   return response.json(product);
 });
 
@@ -58,11 +50,8 @@ app.delete("/delete-produto/:id", (request, response) => {
     }
     products.splice(productIndex, 1)
   
-  
-    console.log(product);
     return response.status(204).send(product);
   });
-
 
 
 app.listen(3333, () => {
